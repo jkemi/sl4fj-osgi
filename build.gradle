@@ -1,0 +1,36 @@
+group = 'org.slf4j'
+version = '1.7'
+description = """slf4j to OSGI LogService backend bridge"""
+
+buildscript {
+	// use propdeps ( https://github.com/spring-projects/gradle-plugins/tree/master/propdeps-plugin )
+	repositories { maven { url 'http://repo.spring.io/plugins-release' } }
+	dependencies { classpath 'org.springframework.build.gradle:propdeps-plugin:[0.0.7,0.0.9)' }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+// propdeps
+apply plugin: 'propdeps'
+apply plugin: 'propdeps-maven'
+apply plugin: 'propdeps-idea'
+apply plugin: 'propdeps-eclipse'
+
+
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	provided 'org.slf4j:slf4j-api:1.7+'
+
+	provided 'org.osgi:org.osgi.core:4.0+'
+	provided 'org.osgi:org.osgi.compendium:4.0+'
+
+	testCompile 'junit:junit:3.8+'
+}

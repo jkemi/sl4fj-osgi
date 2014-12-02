@@ -1,0 +1,19 @@
+# eclipse
+.metadata/
+.classpath
+.project
+.settings/
+bin/
+
+# maven
+target/
+dependency-reduced-pom.xml
+
+# gradle
+.gradle/
+build/
+
+# netbeans
+nbproject/
+dist/
+/.nb-gradle/
